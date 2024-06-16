@@ -1,0 +1,56 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Jövedelem alakulása",
+      "subtitle": [
+        "A EU27 országokban a bruttó havi jövedelem alakulása 2012-2020 között",
+        "Forrás: Unece"
+      ]
+    },
+    "description": "A heatmap showing the monthly gross income in EU27 countries from 2012 to 2020.",
+    "data": {
+      "url": "https://raw.githubusercontent.com/kisagota/kisagota.github.io/main/helyesadatbazis.csv"
+    },
+    "mark": "rect",
+    "encoding": {
+      "x": {
+        "field": "ev",
+        "type": "ordinal",
+        "title": "Év",
+        "axis": {
+          "labelAngle": 0
+        }
+      },
+      "y": {
+        "field": "orszagok",
+        "type": "nominal",
+        "title": "Ország"
+      },
+      "color": {
+        "field": "havi_jovedelem",
+        "type": "quantitative",
+        "title": "Bruttó havi jövedelem (Dollár)",
+        "scale": {
+          "scheme": "viridis"
+        }
+      },
+      "tooltip": [
+        {"field": "orszagok", "type": "nominal", "title": "Ország"},
+        {"field": "ev", "type": "ordinal", "title": "Év"},
+        {"field": "havi_jovedelem", "type": "quantitative", "title": "Bruttó havi jövedelem (Dollár)"}
+      ]
+    },
+    "width": 800,
+    "height": 600,
+    "config": {
+      "axis": {
+        "labelFontSize": 10,
+        "titleFontSize": 12
+      },
+      "legend": {
+        "titleFontSize": 12,
+        "labelFontSize": 10
+      }
+    }
+  }
+  

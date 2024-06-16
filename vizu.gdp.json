@@ -1,0 +1,68 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Átlag GDP/fő mértékének alakulása",
+      "subtitle": ["Az EU27 országokban a vásárlóerő-paritáson mért egy főre jutó bruttó hazai termék alakulása", "Forrás: Euromonitor"]
+    },
+    "description": "A bubble chart with average values for each country.",
+    "data": {
+      "url": "https://raw.githubusercontent.com/kisagota/kisagota.github.io/main/helyesadatbazis.csv"
+    },
+    "transform": [
+      {
+        "aggregate": [
+          {
+            "op": "mean",
+            "field": "gdp",
+            "as": "avg_gdp"
+          }
+        ],
+        "groupby": ["orszagok"]
+      }
+    ],
+    "mark": {
+      "type": "bar",
+      "tooltip": true
+    },
+    "encoding": {
+      "x": {
+        "field": "orszagok",
+        "type": "nominal",
+        "title": "",
+        "axis": {
+          "labelColor": "#333"
+        }
+      },
+      "y": {
+        "field": "avg_gdp",
+        "type": "quantitative",
+        "title": "Átlag GDP/fő mértéké (millió Euró)",
+        "axis": {
+          "titleFontSize": 12,
+          "labelFontSize": 10
+        }
+      },
+            "color": {
+        "field": "orszagok",
+        "type": "nominal",
+        "title": "Ország",
+        "scale": {
+          "scheme": "category20"
+        },
+        "legend": null
+      },
+      "tooltip": [
+        {"field": "orszagok", "type": "nominal", "title": "Ország"},
+        {"field": "avg_gdp", "type": "quantitative", "title": "Átlag GDP/fő"}
+      ]
+    },
+    "width": 600,
+    "height": 300,
+    "config": {
+      "axis": {
+        "labelFontSize": 10,
+        "titleFontSize": 12
+      }
+    }
+  }
+  

@@ -1,0 +1,79 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Középiskolai oktatást végzettek alakulása",
+      "subtitle": ["A EU27 országokban a középiskolai oktatást végzett férfiak számának alakulása", "Forrás: Eurostat"]
+    },
+    "description": "A bubble chart with average values for each country.",
+    "data": {
+      "url": "https://raw.githubusercontent.com/kisagota/kisagota.github.io/main/helyesadatbazis.csv"
+    },
+    "transform": [
+      {
+        "aggregate": [
+          {
+            "op": "mean",
+            "field": "koktatas_ferfi",
+            "as": "avg_koktatas_ferfi"
+          }
+        ],
+        "groupby": ["orszagok"]
+      }
+    ],
+    "mark": {
+      "type": "circle",
+      "tooltip": true
+    },
+    "encoding": {
+      "x": {
+        "field": "orszagok",
+        "type": "nominal",
+        "title": "",
+        "axis": {
+          "labelColor": "#FFFFFF"
+        }
+      },
+      "y": {
+        "field": "avg_koktatas_ferfi",
+        "type": "quantitative",
+        "title": "Átlagos középiskolai oktatást végzett férfiak aránya (%)",
+        "scale": {
+          "domain": [30, 100]
+        },
+        "axis": {
+          "titleFontSize": 12,
+          "labelFontSize": 10
+        }
+      },
+      "size": {
+        "field": "avg_koktatas_ferfi",
+        "type": "quantitative",
+        "title": "Átlagos arány",
+        "scale": {
+          "range": [0, 1000]
+        }
+      },
+      "color": {
+        "field": "orszagok",
+        "type": "nominal",
+        "title": "Ország",
+        "scale": {
+          "scheme": "category20"
+        },
+        "legend": null
+      },
+      "tooltip": [
+        {"field": "orszagok", "type": "nominal", "title": "Ország"},
+        {"field": "avg_koktatas_ferfi", "type": "quantitative", "title": "Átlagos arány"}
+      ]
+    },
+    "width": 600,
+    "height": 300,
+    "config": {
+      "axis": {
+        "labelFontSize": 10,
+        "titleFontSize": 12
+      }
+    }
+  }
+  
