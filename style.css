@@ -1,9 +1,18 @@
 body {
-  font-family: Courier New;
+  font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  line-height: 2;
-  text-align: justify
+  line-height: 1.6;
+  text-align: justify;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.diagram {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  text-align: center;
 }
 
 header {
@@ -11,27 +20,43 @@ header {
   color: white;
   padding: 1rem 0;
   text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 main {
-  padding: 5rem;
+  padding: 2rem 5rem;
+  background: white;
+  max-width: 1200px;
+  margin: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 section {
-  margin: 2rem;
+  margin: 2rem 0;
 }
 
 h1 {
-  text-align: center
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
-h2, {
-  color: #333;
+h2 {
+  color: #444;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 h3 {
-  color: #333;
-  margin: 2.5rem
+  color: #555;
+  font-size: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+figure {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
 }
 
 footer {
@@ -42,11 +67,37 @@ footer {
   position: fixed;
   width: 100%;
   bottom: 0;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#vis, #vis2 {
-  width: 80%;
-  max-width: 1000px;
-  height: auto;
+a {
+  color: hsl(219, 53%, 37%);
+  text-decoration: none;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background: hsl(219, 53%, 37%);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: hsl(219, 63%, 47%);
+}
+
+.container {
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 1rem;
+  }
+}
